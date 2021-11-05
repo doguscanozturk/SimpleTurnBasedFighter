@@ -14,3 +14,7 @@
 * In the combat scene the player picks which hero to attack. The boss attacks after an attack made by the hero of the player.
 * All of the player's heroes or the boss, whichever dies first, loses the game.
 * Heroes of the player who survive in a combat gain experience points. When a hero gains enough experience points it levels up and its attack power and health attributes get improved depending on its level.
+
+### Gameplay Sample
+
+https://user-images.githubusercontent.com/12052479/140514482-33c9d724-5343-431e-abd1-cebbfe4d9f29.mp4
