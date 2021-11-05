@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Attributes;
-using Data.Containers;
+using Data;
 using UI.Elements;
 
 namespace UI.Handlers
@@ -10,11 +10,8 @@ namespace UI.Handlers
     {
         public List<HeroUIElement> SelectedHeroes { get; private set; }
         
-        private readonly GameDesignValues gameDesignValues;
-
-        public CharacterSelectionHandler(GameDesignValues gameDesignValues)
+        public CharacterSelectionHandler()
         {
-            this.gameDesignValues = gameDesignValues;
             SelectedHeroes = new List<HeroUIElement>();
         }
 
@@ -42,7 +39,7 @@ namespace UI.Handlers
                 return;
             }
             
-            if (SelectedHeroes.Count >= gameDesignValues.maxSelectableHeroAmount)
+            if (SelectedHeroes.Count >= DataContainers.GameDesignValues.maxSelectableHeroAmount)
             {
                 SelectedHeroes[0].ToggleOutline();
                 SelectedHeroes.RemoveAt(0);

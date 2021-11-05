@@ -4,7 +4,6 @@ using BattleSystem;
 using Commons.Copy;
 using Commons.Extensions;
 using Data;
-using Data.Containers;
 using DG.Tweening;
 using GameplayElements.Characters;
 using InGameIndicators.Texts;
@@ -16,16 +15,12 @@ namespace ProgressSystem
     {
         private readonly HeroAttributes[] initialHeroAttributes;
         private readonly ProgressIOHelper progressIOHelper;
-        private readonly GameDesignValues gameDesignValues;
-        private readonly UxDesignValues uxDesignValues;
         
         public ProgressData CurrentProgress => progressIOHelper.ReadProgress();
         
         public ProgressManager()
         {
             initialHeroAttributes = DataContainers.InitialHeroAttributes.attributes;
-            uxDesignValues = DataContainers.UxDesignValues;
-            gameDesignValues = DataContainers.GameDesignValues;
             
             progressIOHelper = new ProgressIOHelper(initialHeroAttributes);
             
@@ -42,7 +37,7 @@ namespace ProgressSystem
             {
                 var heroId = heroAttributes[i].id;
                 var heroProgression = CurrentProgress.heroProgressions.First(h => h.id == heroId);
-                heroAttributes[i].Apply(heroProgression, gameDesignValues);
+                heroAttributes[i].Apply(heroProgression, DataContainers.GameDesignValues);
             }
 
             return heroAttributes;
@@ -79,14 +74,14 @@ namespace ProgressSystem
             var heroProgression = currentProgress.heroProgressions.First(h => h.id == heroId);
             var currentExperience = ++heroProgression.experience;
 
-            var messagePosition = hero.ThisTransform.position + uxDesignValues.experienceTextStartOffset;
+            var messagePosition = hero.ThisTransform.position + DataContainers.UxDesignValues.experienceTextStartOffset;
             InGameTextDirector.DisplayMessage("+1 Experience!", messagePosition);
             
-            if (currentExperience == gameDesignValues.experienceNeededToLevelUp)
+            if (currentExperience == DataContainers.GameDesignValues.experienceNeededToLevelUp)
             {
                 heroProgression.level++;
                 heroProgression.experience = 0;
-                DOVirtual.DelayedCall(uxDesignValues.levelUpTextDelay, () =>
+                DOVirtual.DelayedCall(DataContainers.UxDesignValues.levelUpTextDelay, () =>
                 {
                     InGameTextDirector.DisplayMessage("Level up!", hero.ThisTransform.position);
                 });
@@ -107,7 +102,7 @@ namespace ProgressSystem
             var isAllHeroesLocked = CurrentProgress.heroProgressions.All(hp => !hp.isUnlocked);
             if (isAllHeroesLocked)
             {
-                for (int i = 0; i < gameDesignValues.initialHeroCount; i++)
+                for (int i = 0; i < DataContainers.GameDesignValues.initialHeroCount; i++)
                 {
                     UnlockHero(CurrentProgress.heroProgressions[i]);
                 }

@@ -1,6 +1,6 @@
 ﻿using Attributes;
 using Controllers;
-using Data.Containers;
+using Data;
 using EventMediators;
 using GameplayElements.Characters;
 using ProgressSystem;
@@ -23,16 +23,14 @@ namespace UI.Panels
         private CharacterSelectionHandler characterSelectionHandler;
         private HeroInfoPopUpHandler heroInfoPopUpHandler;
         private IProgressionProvider progressionProvider;
-        private GameDesignValues gameDesignValues;
         private HeroAttributes[] upToDateHeroAttributes;
         private ProgressData upToDateProgressData;
 
-        public void Initialize(HeroInfoPopUpHandler heroInfoPopUpHandler, IProgressionProvider progressionProvider, GameDesignValues gameDesignValues)
+        public void Initialize(HeroInfoPopUpHandler heroInfoPopUpHandler, IProgressionProvider progressionProvider)
         {
             this.heroInfoPopUpHandler = heroInfoPopUpHandler;
             this.progressionProvider = progressionProvider;
-            this.gameDesignValues = gameDesignValues;
-            characterSelectionHandler = new CharacterSelectionHandler(gameDesignValues);
+            characterSelectionHandler = new CharacterSelectionHandler();
 
             GenerateHeroUIElements();
         }
@@ -132,7 +130,7 @@ namespace UI.Panels
 
         private void UpdateBattleButtonInteractableState()
         {
-            battleButton.interactable = characterSelectionHandler.SelectedHeroes.Count >= gameDesignValues.maxSelectableHeroAmount;
+            battleButton.interactable = characterSelectionHandler.SelectedHeroes.Count >= DataContainers.GameDesignValues.maxSelectableHeroAmount;
         }
     }
 }

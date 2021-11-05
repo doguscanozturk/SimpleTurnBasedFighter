@@ -1,7 +1,6 @@
 ﻿using Attributes;
 using BattleSystem;
 using Data;
-using Data.Containers;
 using DG.Tweening;
 using EventMediators;
 using GameplayElements.Characters;
@@ -15,9 +14,6 @@ namespace UI
 {
     public class UISystem
     {
-        private readonly UxDesignValues uxDesignValues;
-        private readonly GameDesignValues gameDesignValues;
-        
         private readonly Canvas canvas;
         private readonly Transform canvasTransform;
         private readonly CharacterSelectionPanel characterSelectionPanel;
@@ -27,16 +23,13 @@ namespace UI
         
         public UISystem(IProgressionProvider progressionProvider)
         {
-            uxDesignValues = DataContainers.UxDesignValues;
-            gameDesignValues = DataContainers.GameDesignValues;
-
             canvas = PrefabInstantiator.Instantiate<Canvas>();
             canvasTransform = canvas.transform;
 
-            heroInfoPopupHandler = new HeroInfoPopUpHandler((RectTransform) canvasTransform, uxDesignValues);
+            heroInfoPopupHandler = new HeroInfoPopUpHandler((RectTransform) canvasTransform);
 
             characterSelectionPanel = PrefabInstantiator.Instantiate<CharacterSelectionPanel>(canvasTransform);
-            characterSelectionPanel.Initialize(heroInfoPopupHandler, progressionProvider, gameDesignValues);
+            characterSelectionPanel.Initialize(heroInfoPopupHandler, progressionProvider);
             characterSelectionPanel.Show();
 
             battlePanel = PrefabInstantiator.Instantiate<BattlePanel>(canvasTransform);
@@ -67,7 +60,7 @@ namespace UI
             battlePanel.Hide();
             gameOverPanel.PreparePanel(didHeroesWin);
 
-            DOVirtual.DelayedCall(uxDesignValues.gameOverPanelOpeningDelay, () =>
+            DOVirtual.DelayedCall(DataContainers.UxDesignValues.gameOverPanelOpeningDelay, () =>
             {
                 gameOverPanel.Show();
             });

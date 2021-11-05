@@ -1,6 +1,6 @@
 ﻿using Attributes;
 using Commons;
-using Data.Containers;
+using Data;
 using UI.PopUps;
 using UnityEngine;
 using Utility;
@@ -13,14 +13,12 @@ namespace UI.Handlers
 
         private readonly BasicTimer basicTimer;
         private readonly HeroInfoPopup heroInfoPopup;
-        private readonly UxDesignValues uxDesignValues;
 
         private HeroAttributes focusHeroHeroAttributes;
         private Vector3 focusedHeroScreenPosition;
 
-        public HeroInfoPopUpHandler(RectTransform parent, UxDesignValues uxDesignValues)
+        public HeroInfoPopUpHandler(RectTransform parent)
         {
-            this.uxDesignValues = uxDesignValues;
             basicTimer = new BasicTimer();
             heroInfoPopup = PrefabInstantiator.Instantiate<HeroInfoPopup>(parent);
         }
@@ -44,7 +42,7 @@ namespace UI.Handlers
         {
             focusHeroHeroAttributes = heroHeroAttributes;
             focusedHeroScreenPosition = screenPosition;
-            basicTimer.StartTimer(uxDesignValues.activateHeroInfoPopupDuration, HeroPopupActivated);
+            basicTimer.StartTimer(DataContainers.UxDesignValues.activateHeroInfoPopupDuration, HeroPopupActivated);
         }
 
         private void HeroPopupActivated()

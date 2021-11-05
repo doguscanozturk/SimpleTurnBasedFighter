@@ -1,6 +1,6 @@
 ﻿using System;
 using Commons;
-using Data.Containers;
+using Data;
 using GameplayElements.Characters;
 using UnityEngine;
 using Utility;
@@ -13,14 +13,12 @@ namespace Controllers
         public static event Action<BattleCharacter> OnButtonUpOnBattleCharacter;
 
         private readonly Collider2D[] hitResults;
-        private readonly UxDesignValues uxDesignValues;
         private readonly BasicTimer basicTimer;
 
         private bool isActive;
 
-        public BattleCharacterController(UxDesignValues uxDesignValues)
+        public BattleCharacterController()
         {
-            this.uxDesignValues = uxDesignValues;
             hitResults = new Collider2D[1];
             basicTimer = new BasicTimer();
         }
@@ -44,7 +42,7 @@ namespace Controllers
                     OnButtonDownOnBattleCharacter?.Invoke(battleCharacter);
                 }
 
-                basicTimer.StartTimer(uxDesignValues.clickDetectionDuration, null);
+                basicTimer.StartTimer(DataContainers.UxDesignValues.clickDetectionDuration, null);
             }
 
             if (Input.GetMouseButtonUp(0))

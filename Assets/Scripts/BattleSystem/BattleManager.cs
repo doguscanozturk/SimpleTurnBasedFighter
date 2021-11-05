@@ -3,7 +3,6 @@ using System.Linq;
 using Attributes;
 using Controllers;
 using Data;
-using Data.Containers;
 using EventMediators;
 using GameplayElements;
 using GameplayElements.Characters;
@@ -19,7 +18,6 @@ namespace BattleSystem
 
         private readonly Battleground battleground;
         private readonly BattleCharacterController battleCharacterController;
-        private readonly UxDesignValues uxDesignValues;
         
         private BattleParticipants battleParticipants;
         private BattleState currentBattleState;
@@ -27,9 +25,7 @@ namespace BattleSystem
 
         public BattleManager()
         {
-            uxDesignValues = DataContainers.UxDesignValues;
-            
-            battleCharacterController = new BattleCharacterController(uxDesignValues);
+            battleCharacterController = new BattleCharacterController();
 
             battleground = PrefabInstantiator.Instantiate<Battleground>();
 
