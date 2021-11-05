@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a6514259aad49d7a707475c068dbdab, type: 3}
+  m_Name: InitialHeroAttributes
+  m_EditorClassIdentifier: 
+  attributes:
+  - id: 0
+    name: A
+    health:
+      maxHealth: 10
+    attackPower: 10
+    experience: 0
+    level: 1
+  - id: 1
+    name: B
+    health:
+      maxHealth: 20
+    attackPower: 20
+    experience: 0
+    level: 1
+  - id: 2
+    name: C
+    health:
+      maxHealth: 30
+    attackPower: 30
+    experience: 0
+    level: 1
+  - id: 3
+    name: D
+    health:
+      maxHealth: 40
+    attackPower: 40
+    experience: 0
+    level: 1
+  - id: 4
+    name: E
+    health:
+      maxHealth: 50
+    attackPower: 50
+    experience: 0
+    level: 1
+  - id: 5
+    name: F
+    health:
+      maxHealth: 60
+    attackPower: 60
+    experience: 0
+    level: 1
+  - id: 6
+    name: G
+    health:
+      maxHealth: 70
+    attackPower: 70
+    experience: 0
+    level: 1
+  - id: 7
+    name: H
+    health:
+      maxHealth: 80
+    attackPower: 80
+    experience: 0
+    level: 1
+  - id: 8
+    name: I
+    health:
+      maxHealth: 90
+    attackPower: 90
+    experience: 0
+    level: 1
+  - id: 9
+    name: J
+    health:
+      maxHealth: 100
+    attackPower: 100
+    experience: 0
+    level: 1

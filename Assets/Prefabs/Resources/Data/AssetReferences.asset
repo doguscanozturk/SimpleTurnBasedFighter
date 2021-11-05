@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f20b4dd383154a2580545101b4cd0bde, type: 3}
+  m_Name: AssetReferences
+  m_EditorClassIdentifier: 
+  canvasPrefab: {fileID: 5330165679793430981, guid: f5e79d08e14a8d24f8da1df5f0d0e10e,
+    type: 3}
+  characterSelectionPanelPrefab: {fileID: 3446042259076485814, guid: 7a9e75106d45373478c56a319ecb1dbd,
+    type: 3}
+  battlePanelPrefab: {fileID: 7359535142542007370, guid: ef43af28263324147a88383a8b7db3e7,
+    type: 3}
+  gameOverPanelPrefab: {fileID: 7359535142542007370, guid: b1af06c80f1f1c840ae5faf89715e581,
+    type: 3}
+  heroUIElementPrefab: {fileID: 1971369048278738361, guid: 9f0862f6e0687644c83307f55b15f871,
+    type: 3}
+  heroInfoPopUpPrefab: {fileID: 6862611558677107438, guid: f711e678670bb9f419eb9f58299924da,
+    type: 3}
+  heroPrefab: {fileID: 1444055382972501498, guid: d68fe601635919f47bb2fd5ec003ccac,
+    type: 3}
+  enemyPrefab: {fileID: 1444055382972501498, guid: 32c8c0f4cff683547801528df5c9a768,
+    type: 3}
+  battlegroundPrefab: {fileID: 4410188621751120815, guid: adb566673604839479c5a3a1e307718e,
+    type: 3}
+  damageTextPrefab: {fileID: 1444055382972501498, guid: 61ac6b7c6bb5bfb4bb3a4419ff22d41d,
+    type: 3}
+  messageTextPrefab: {fileID: 1444055382972501498, guid: fe97ca3ec3389af428661640a02476a9,
+    type: 3}
